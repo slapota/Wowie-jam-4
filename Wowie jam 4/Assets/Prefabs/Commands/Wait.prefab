@@ -47,9 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ai: {fileID: 0}
   name: wait
-  value: 2
+  value: 0.5
   description: 
-  text: {fileID: 7440050373628670486}
 --- !u!1 &7440050373628670486
 GameObject:
   m_ObjectHideFlags: 0
