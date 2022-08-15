@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Command : MonoBehaviour
 {
 
-    public Transform ai;
+    public AI ai;
     public new string name;
     public float value;
     public string description;
@@ -25,10 +24,10 @@ public class Command : MonoBehaviour
                 Move(value);
                 break;
             case "left":
-                RotateLeft(value);
+                Rotate(value);
                 break;
             case "right":
-                RotateRight(value);
+                Rotate(value);
                 break;
             case "wait":
                 Wait(value);
@@ -37,18 +36,17 @@ public class Command : MonoBehaviour
     }
     private void Move(float distance)
     {
-        ai.Translate(Vector3.forward * distance);
+        ai.gameObject.transform.Translate(Vector3.forward * distance);
+        ai.ready = true;
     }
-    private void RotateLeft(float degrees)
+    private void Rotate(float degrees)
     {
-        ai.Rotate(Vector3.up * degrees);
-    }
-    private void RotateRight(float degrees)
-    {
-        ai.Rotate(Vector3.up * degrees);
+        ai.gameObject.transform.Rotate(Vector3.up * degrees);
+        ai.ready = true;
     }
     private void Wait(float seconds)
     {
-        ai.GetComponent<AI>().waitTime = seconds;
+        ai.waitTime = seconds;
+        ai.ready = true;
     }
 }

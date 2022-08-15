@@ -21,6 +21,8 @@ public class ButtonManager : MonoBehaviour
     public void Run()
     {
         ai.SetStartPos();
+        ai.index = 0;
+        ai.stop = false;
         StartCoroutine(ai.Execute());
         ai.runButton1.SetActive(false);
         ai.runButton2.SetActive(false);
@@ -28,7 +30,7 @@ public class ButtonManager : MonoBehaviour
     public void AddCommand(Command command)
     {
         Command instance = Instantiate(command, canvas);
-        instance.ai = transform;
+        instance.ai = ai;
         ai.commands.Add(instance);
         instance.transform.localPosition = new Vector2(-485, 450 - 50 * ai.commands.IndexOf(instance));
     }
@@ -37,6 +39,13 @@ public class ButtonManager : MonoBehaviour
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
         RaycastHit hit;
-        if(Physics.Raycast(ai.gameObject.transform.position, ai.gameObject.transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask))
+        if (Physics.Raycast(ai.gameObject.transform.position, ai.gameObject.transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask)) return true;
+        return false;
+    }
+    public void Stop()
+    {
+        ai.stop = true;
+        ai.runButton1.SetActive(true);
+        ai.runButton2.SetActive(true);
     }
 }

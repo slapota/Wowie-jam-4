@@ -47,9 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ai: {fileID: 0}
   name: left
-  value: 90
+  value: -90
   description: 
-  text: {fileID: 9095133702117426829}
 --- !u!1 &9095133702117426829
 GameObject:
   m_ObjectHideFlags: 0
