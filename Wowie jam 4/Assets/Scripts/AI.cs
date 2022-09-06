@@ -23,8 +23,12 @@ public class AI : MonoBehaviour
         transform.rotation = new Quaternion(0, 0, 0, 0);
         index = 0;
     }
+    public void Run()
+    {
+        StartCoroutine(Execute());
+    }
     
-    public IEnumerator Execute()
+    IEnumerator Execute()
     {
         ready = false;
         if (index >= commands.Count) index = 0;
@@ -38,5 +42,9 @@ public class AI : MonoBehaviour
             StartCoroutine(Execute());
         }
         
+    }
+    public void Restart()
+    {
+
     }
 }

@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 0}
+  If: {fileID: 0}
   name: move
   value: 2
   description: 
-  text: {fileID: 8092860587252600879}
 --- !u!1 &8092860587252600879
 GameObject:
   m_ObjectHideFlags: 0

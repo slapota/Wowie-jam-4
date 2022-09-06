@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557354223956247844}
+  - component: {fileID: 6858124218155887181}
   - component: {fileID: 725694324802626471}
   m_Layer: 0
   m_Name: IfCollision
@@ -33,6 +34,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6858124218155887181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817351658868113545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58fca519271ac2649a3c0e8948076525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commands: []
+  ai: {fileID: 0}
+  index: 0
 --- !u!114 &725694324802626471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 0}
+  If: {fileID: 6858124218155887181}
   name: if
   value: 0.5
   description: 
@@ -115,7 +132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: wait
+  m_text: ifCollision
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

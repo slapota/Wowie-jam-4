@@ -6,6 +6,7 @@ public class Command : MonoBehaviour
 {
 
     public AI ai;
+    public If If;
     public new string name;
     public float value;
     public string description;
@@ -32,6 +33,9 @@ public class Command : MonoBehaviour
             case "wait":
                 Wait(value);
                 break;
+            case "if":
+                IfCommands();
+                break;
         }
     }
     private void Move(float distance)
@@ -48,5 +52,27 @@ public class Command : MonoBehaviour
     {
         ai.waitTime = seconds;
         ai.ready = true;
+    }
+    private void IfCommands()
+    {
+        if (ifBlocking())
+        {
+            If.Run();
+        }
+        else
+        {
+            ai.ready = true;
+        }
+    }
+    public bool ifBlocking()
+    {
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        RaycastHit hit;
+        if (Physics.Raycast(ai.gameObject.transform.position, ai.gameObject.transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask))
+        {
+            return true;
+        }
+        return false;
     }
 }
