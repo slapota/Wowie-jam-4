@@ -11,9 +11,13 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] AI ai;
     public bool ifList;
     public GameObject exitButton;
-    int index;
+    public int index;
     bool hide;
 
+    private void Start()
+    {
+        exitButton.SetActive(false);
+    }
     public void Open_Close_Console(GameObject ob)
     {
         canvas.localScale = (hide) ? Vector3.zero : Vector3.one;
@@ -31,10 +35,11 @@ public class ButtonManager : MonoBehaviour
         else
         {
             Exit();
-            Destroy(ai.commands[ai.commands.Count - 1].gameObject);
+            Destroy(ai.commands.Last().gameObject);
             ai.commands.RemoveAt(ai.commands.Count - 1);
         }
         index--;
+        if (ai.commands.Last().name == "if") ifList = true;
     }
     public void Run()
     {

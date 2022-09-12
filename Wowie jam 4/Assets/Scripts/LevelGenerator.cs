@@ -5,11 +5,13 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public GameObject cube, cubeParent;
+    public Objective objective;
+    public ButtonManager bm;
     public int quantity;
     public int spread;
     public int minX, minZ, maxX, maxZ;
     public int chance;
-    public Transform ai;
+    public AI ai;
     public float startSpace;
     int index;
     Vector3 startPos;
@@ -22,6 +24,7 @@ public class LevelGenerator : MonoBehaviour
     {
         transform.position = startPos;
         index = 0;
+        ai.SetStartPos();
         StartCoroutine(Generate());
     }
     IEnumerator Generate()
@@ -46,7 +49,18 @@ public class LevelGenerator : MonoBehaviour
             index++;
             StartCoroutine(Generate());
         }
+        else
+        {
+            GenerateObjective();
+        }
         yield return null;
+    }
+    void GenerateObjective()
+    {
+        transform.position = new Vector3(Random.Range(-49f, 49f), -2, Random.Range(-49f, 49f));
+        Objective instance = Instantiate(objective, transform.position, Quaternion.identity);
+        instance.bm = bm;
+        instance.levelGenerator = this;
     }
     public void RandomGenerator()
     {
@@ -63,7 +77,7 @@ public class LevelGenerator : MonoBehaviour
     }
     void Check(GameObject cube)
     {
-        if(Vector3.Distance(ai.position, cube.transform.position) < startSpace)
+        if(Vector3.Distance(ai.transform.position, cube.transform.position) < startSpace)
         {
             Destroy(cube);
         }

@@ -64,7 +64,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   If: {fileID: 6858124218155887181}
   name: if
-  value: 0.5
+  value: 2
   description: 
 --- !u!1 &7440050373628670486
 GameObject:

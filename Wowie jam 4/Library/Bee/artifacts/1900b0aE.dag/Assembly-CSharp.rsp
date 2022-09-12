@@ -354,6 +354,7 @@
 "Assets/Scripts/Command.cs"
 "Assets/Scripts/If.cs"
 "Assets/Scripts/LevelGenerator.cs"
+"Assets/Scripts/Objective.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"

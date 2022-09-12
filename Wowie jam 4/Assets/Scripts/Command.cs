@@ -69,7 +69,7 @@ public class Command : MonoBehaviour
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
         RaycastHit hit;
-        if (Physics.Raycast(ai.gameObject.transform.position, ai.gameObject.transform.TransformDirection(Vector3.forward), out hit, 2f, layerMask))
+        if (Physics.SphereCast(ai.gameObject.transform.position, 1f, ai.gameObject.transform.TransformDirection(Vector3.forward), out hit, value, layerMask))
         {
             return true;
         }
